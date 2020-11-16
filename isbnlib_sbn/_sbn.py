@@ -120,6 +120,7 @@ def parser_sbn(data):
             # <li>700  1$aDi Matteo$b, Nino$3IT\ICCU\CAGV\748340</li>
             # <li>701  1$aLodato$b, Saverio$3IT\ICCU\CFIV\025147</li>
             if (re.search(r"^70", line) and len(recs['Authors']) == 0):
+                #TODO: remove the len()==0, and deal with duplicate entries in 461
                 # do a lazy match from $a until the first $ sign:
                 surname = re.findall(r'\$a(.+?)\$', line)[0]
                 name = re.findall(r'\$b(.+?)\$', line)[0]
